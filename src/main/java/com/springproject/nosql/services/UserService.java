@@ -30,6 +30,12 @@ public class UserService {
       return repository.insert(obj);
   }
 
+  public void delete(String id) {
+      findById(id); // fazer a busca e se não encontrar ele lança a exception not found
+      repository.deleteById(id);
+  }
+
+
   public User fromDto(UserDTO objDto) {
       return new User(objDto.getId(), objDto.getName(), objDto.getEmail());
   }
